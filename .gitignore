@@ -1,0 +1,15 @@
+# for idea files
+out/
+*.iml
+*.ipr
+*.iws
+
+# for gradle files
+.gradle/
+build/
+
+# for mac
+.DS_Store
+
+# for java
+*.class
