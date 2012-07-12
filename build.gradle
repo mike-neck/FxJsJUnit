@@ -1,0 +1,43 @@
+allprojects {
+    apply plugin : 'groovy'
+    apply plugin : 'idea'
+
+    group = 'org.mikeneck.fxjsjunit'
+    version = '0.1'
+
+    repositories {
+        mavenCentral ()
+    }
+
+    dependencies {
+        compile ('junit:junit-dep:4.10') {
+            exclude module : 'hamcrest'
+            exclude module : 'hamcrest-core'
+        }
+        testCompile 'org.hamcrest:hamcrest-library:1.2.1'
+        groovy 'org.codehaus.groovy:groovy:1.8.6'
+    }
+}
+
+project (':server') {
+    dependencies {
+        compile project (':core')
+    }
+}
+
+project (':core') {
+    def jfxrt = System.properties['os.name']
+            .contains('Windows')? '/lib/jfxrt.jar' : '/jre/lib/jfxrt.jar'
+    dependencies {
+        compile files ("${System.env['JAVAFX_HOME']}/${jfxrt}")
+    }
+}
+
+idea.project.ipr {
+    withXml { provider ->
+        def map = provider.node.component.find { it.@name == 'VcsDirectoryMappings' }.mapping
+        map.@vcs = 'Git'
+        map.@directory = project.properties.projectDir
+
+    }
+}
