@@ -1,6 +1,10 @@
 package org.mikeneck.fxjsjunit;
 
 import org.junit.rules.TestRule;
+import org.mikeneck.fxjsjunit.builder.FxJsJUnitBuilder;
+import org.mikeneck.fxjsjunit.extension.ParametarlizedExtension;
+
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * this class starts JavaFX application which offers WebEngine in the lifecycle of JUnit
@@ -8,11 +12,25 @@ import org.junit.rules.TestRule;
  *
  * @author mike_neck
  */
-public interface FxJsJUnit extends TestRule {
+public abstract class FxJsJUnit implements TestRule {
+
+    public static FxJsJUnitBuilder option (Class<? extends Extension> extension) {
+        try {
+            @SuppressWarnings("unchecked")
+            Extension ex = (Extension) extension.getConstructors()[0].newInstance();
+            return ex.getBuilder();
+        } catch (ReflectiveOperationException e) {
+            throw new FxJsJUnitCannotGetStartedException(e);
+        }
+    }
+
+    public static FxJsJUnitBuilder option (ParametarlizedExtension extension) {
+        return extension.toBuilder();
+    }
 
     /**
      * get interface to {@code WebEngine}.
      * @return - the instance of {@link JsJUnit}
      */
-    public JsJUnit getTester ();
+    abstract public JsJUnit getTester ();
 }
