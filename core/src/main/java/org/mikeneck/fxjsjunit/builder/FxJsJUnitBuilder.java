@@ -14,4 +14,8 @@ public interface FxJsJUnitBuilder {
     public FxJsJUnitBuilder identifiedBy (Class<?> identifier);
 
     public FxJsJUnit get();
+
+    public String identifier();
+
+    public String url ();
 }

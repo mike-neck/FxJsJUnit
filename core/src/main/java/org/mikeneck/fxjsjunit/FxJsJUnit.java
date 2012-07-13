@@ -4,8 +4,6 @@ import org.junit.rules.TestRule;
 import org.mikeneck.fxjsjunit.builder.FxJsJUnitBuilder;
 import org.mikeneck.fxjsjunit.extension.ParametarlizedExtension;
 
-import java.lang.reflect.InvocationTargetException;
-
 /**
  * this class starts JavaFX application which offers WebEngine in the lifecycle of JUnit
  * and you can get interface of WebEngine via {@link org.mikeneck.fxjsjunit.FxJsJUnit#getTester()}.

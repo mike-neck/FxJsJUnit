@@ -33,4 +33,14 @@ public class DefaultFxJsJUnitBuilder implements FxJsJUnitBuilder {
     public FxJsJUnit get() {
         return null;
     }
+
+    @Override
+    public String identifier() {
+        return this.identifier;
+    }
+
+    @Override
+    public String url() {
+        return this.url;
+    }
 }
