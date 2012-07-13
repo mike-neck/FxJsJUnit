@@ -25,12 +25,7 @@ class CoreExtension implements Extension {
         }
         ExecutorService.metaClass.define {
             doSubmit = {Closure closure ->
-                return delegate.submit {new Callable(){
-                    @Override
-                    Object call() {
-                        return closure ()
-                    }
-                }}
+                return delegate.submit (closure as Callable)
             }
         }
     }
