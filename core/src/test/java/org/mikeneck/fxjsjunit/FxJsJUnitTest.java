@@ -86,6 +86,16 @@ public class FxJsJUnitTest {
             public FxJsJUnit get() {
                 return new SomeJsJUnit();
             }
+
+            @Override
+            public String identifier() {
+                return this.identifier;
+            }
+
+            @Override
+            public String url() {
+                return this.url;
+            }
         }
 
         private static class SomeJsJUnit extends FxJsJUnit {

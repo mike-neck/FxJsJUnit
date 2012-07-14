@@ -1,6 +1,7 @@
 package org.mikeneck.fxjsjunit.builder;
 
 import org.mikeneck.fxjsjunit.FxJsJUnit;
+import org.mikeneck.fxjsjunit.extension.DefaultFxJsJUnit;
 
 /**
  * @author mike_neck
@@ -31,7 +32,7 @@ public class DefaultFxJsJUnitBuilder implements FxJsJUnitBuilder {
 
     @Override
     public FxJsJUnit get() {
-        return null;
+        return new DefaultFxJsJUnit(this);
     }
 
     @Override

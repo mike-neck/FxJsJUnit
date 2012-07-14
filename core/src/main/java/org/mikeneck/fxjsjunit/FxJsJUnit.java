@@ -12,6 +12,8 @@ import org.mikeneck.fxjsjunit.extension.ParametarlizedExtension;
  */
 public abstract class FxJsJUnit implements TestRule {
 
+    protected FxJsJUnitBuilder builder;
+
     public static FxJsJUnitBuilder option (Class<? extends Extension> extension) {
         try {
             @SuppressWarnings("unchecked")
