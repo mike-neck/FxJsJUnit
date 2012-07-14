@@ -2,7 +2,7 @@ package org.mikeneck.fxjsjunit;
 
 import org.junit.rules.TestRule;
 import org.mikeneck.fxjsjunit.builder.FxJsJUnitBuilder;
-import org.mikeneck.fxjsjunit.extension.ParametarlizedExtension;
+import org.mikeneck.fxjsjunit.extension.ParameterlizedExtension;
 
 /**
  * this class starts JavaFX application which offers WebEngine in the lifecycle of JUnit
@@ -24,7 +24,7 @@ public abstract class FxJsJUnit implements TestRule {
         }
     }
 
-    public static FxJsJUnitBuilder option (ParametarlizedExtension extension) {
+    public static FxJsJUnitBuilder option (ParameterlizedExtension extension) {
         return extension.toBuilder();
     }
 

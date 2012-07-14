@@ -5,7 +5,7 @@ import org.mikeneck.fxjsjunit.builder.FxJsJUnitBuilder;
 /**
  * @author mike_neck
  */
-public abstract class ParametarlizedExtension {
+public abstract class ParameterlizedExtension {
 
     static {
         try {

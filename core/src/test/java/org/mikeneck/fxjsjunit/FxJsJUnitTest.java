@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.model.Statement;
 import org.mikeneck.fxjsjunit.builder.FxJsJUnitBuilder;
 import org.mikeneck.fxjsjunit.extension.CoreExtension;
-import org.mikeneck.fxjsjunit.extension.ParametarlizedExtension;
+import org.mikeneck.fxjsjunit.extension.ParameterlizedExtension;
 
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
@@ -36,12 +36,12 @@ public class FxJsJUnitTest {
         }
 
         private static class SomeExtention {
-            public static ParametarlizedExtension port (int portNumber) {
+            public static ParameterlizedExtension port (int portNumber) {
                 return new SomeParameter(portNumber);
             }
         }
 
-        private static class SomeParameter extends ParametarlizedExtension {
+        private static class SomeParameter extends ParameterlizedExtension {
 
             private final SomeBuilder builder;
 
