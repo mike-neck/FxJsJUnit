@@ -3,6 +3,7 @@ package org.mikeneck.fxjsjunit.builder;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 import org.mikeneck.fxjsjunit.FxJsJUnitCannotGetStartedException;
+import org.mikeneck.fxjsjunit.annotation.NoTestAttached;
 import org.mikeneck.fxjsjunit.application.Launcher;
 
 import java.lang.reflect.Constructor;
@@ -19,6 +20,7 @@ public class LauncherInformation {
 
     private LauncherInformation () {}
 
+    @NoTestAttached
     public static synchronized StatementBuilder load () {
         try {
             Class<Launcher> klass = KLASS.get();
@@ -33,36 +35,44 @@ public class LauncherInformation {
         }
     }
 
+    @NoTestAttached
     public static class StatementBuilder {
+        @NoTestAttached
         public DescriptionBuilder statement(Statement s) {
             return new DescriptionBuilder(s);
         }
     }
 
+    @NoTestAttached
     public static class DescriptionBuilder {
 
         private Statement statement;
 
+        @NoTestAttached
         public DescriptionBuilder(Statement statement) {
             this.statement = statement;
         }
 
+        @NoTestAttached
         public Builder description(Description desc) {
             return new Builder(statement, desc);
         }
     }
 
+    @NoTestAttached
     public static class Builder {
 
         private Statement statement;
 
         private Description description;
 
+        @NoTestAttached
         public Builder(Statement statement, Description desc) {
             this.statement = statement;
             this.description = desc;
         }
 
+        @NoTestAttached
         public Launcher builder (FxJsJUnitBuilder b) throws FxJsJUnitCannotGetStartedException {
             Class<Launcher> klass = LauncherInformation.KLASS.get();
             try {

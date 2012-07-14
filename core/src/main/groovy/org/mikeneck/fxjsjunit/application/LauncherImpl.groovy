@@ -1,11 +1,11 @@
 package org.mikeneck.fxjsjunit.application
 
-import org.junit.runner.Description
 import java.util.concurrent.atomic.AtomicReference
 import javafx.application.Application
 import org.mikeneck.fxjsjunit.builder.FxJsJUnitBuilder
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import org.mikeneck.fxjsjunit.annotation.NoTestAttached
 
 /**
  * Launches JavaFX-Application in a lifecycle of JUnit Test
@@ -15,10 +15,14 @@ class LauncherImpl extends Launcher {
 
     static AtomicReference<ExecutorService> LOCK = new AtomicReference<>(null)
 
-    Description description
-
     private BrowserPreparation preparation
 
+    @NoTestAttached
+    public LauncherImpl () {
+        super ()
+    }
+
+    @NoTestAttached
     @Override
     protected void launch () {
         if (LOCK.compareAndSet(null, Executors.newSingleThreadExecutor())) {
@@ -32,11 +36,13 @@ class LauncherImpl extends Launcher {
         preparation.allocateEngine()
     }
 
+    @NoTestAttached
     @Override
     protected void finish () {
         preparation.removeEngine()
     }
 
+    @NoTestAttached
     public void setBuilder (FxJsJUnitBuilder builder) {
         this.preparation = new BrowserManager(builder: builder)
     }

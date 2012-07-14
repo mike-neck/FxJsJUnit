@@ -9,7 +9,11 @@ import org.mikeneck.fxjsjunit.builder.FxJsJUnitBuilder;
  */
 abstract public class Launcher extends Statement {
 
+    public Launcher () {}
+
     Statement base;
+
+    Description description;
 
     abstract protected void launch ();
 
@@ -47,7 +51,9 @@ abstract public class Launcher extends Statement {
         this.base = base;
     }
 
-    abstract public void setDescription (Description description);
+    public void setDescription (Description description) {
+        this.description = description;
+    }
 
     abstract public void setBuilder (FxJsJUnitBuilder builder);
 }
