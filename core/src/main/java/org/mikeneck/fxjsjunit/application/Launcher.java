@@ -2,6 +2,7 @@ package org.mikeneck.fxjsjunit.application;
 
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
+import org.mikeneck.fxjsjunit.JsJUnit;
 import org.mikeneck.fxjsjunit.builder.FxJsJUnitBuilder;
 
 /**
@@ -56,4 +57,6 @@ abstract public class Launcher extends Statement {
     }
 
     abstract public void setBuilder (FxJsJUnitBuilder builder);
+
+    abstract public JsJUnit getJsJUnit ();
 }

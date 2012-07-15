@@ -6,6 +6,7 @@ import org.mikeneck.fxjsjunit.builder.FxJsJUnitBuilder
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import org.mikeneck.fxjsjunit.annotation.NoTestAttached
+import org.mikeneck.fxjsjunit.JsJUnit
 
 /**
  * Launches JavaFX-Application in a lifecycle of JUnit Test
@@ -16,6 +17,8 @@ class LauncherImpl extends Launcher {
     static AtomicReference<ExecutorService> LOCK = new AtomicReference<>(null)
 
     private BrowserPreparation preparation
+
+    JsJUnit jsJUnit
 
     @NoTestAttached
     public LauncherImpl () {
@@ -33,7 +36,7 @@ class LauncherImpl extends Launcher {
         while (!WebViewer.launched) {
             sleep 100L
         }
-        preparation.allocateEngine()
+        jsJUnit = preparation.allocateEngine()
     }
 
     @NoTestAttached

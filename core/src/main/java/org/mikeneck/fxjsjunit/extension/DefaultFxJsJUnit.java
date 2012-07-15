@@ -22,7 +22,7 @@ public class DefaultFxJsJUnit extends FxJsJUnit {
 
     @Override
     public JsJUnit getTester() {
-        return null;
+        return launcher.getJsJUnit();
     }
 
     @Override
