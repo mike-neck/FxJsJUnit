@@ -33,4 +33,13 @@ class WebViewer extends Application {
     public static WebViewer getReference () {
         return viewer.get()
     }
+
+    public static void allocateBrowser (String id, Browser browser) {
+        browsers.putIfAbsent(id, browser)
+    }
+
+    public static void removeBrowser (String id) {
+        browsers.remove(id)
+    }
+
 }

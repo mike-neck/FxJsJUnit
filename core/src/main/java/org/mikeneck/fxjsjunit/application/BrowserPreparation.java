@@ -1,5 +1,6 @@
 package org.mikeneck.fxjsjunit.application;
 
+import org.mikeneck.fxjsjunit.JsJUnit;
 import org.mikeneck.fxjsjunit.annotation.InFxThread;
 
 /**
@@ -8,7 +9,7 @@ import org.mikeneck.fxjsjunit.annotation.InFxThread;
 public interface BrowserPreparation {
 
     @InFxThread
-    public void allocateEngine ();
+    public JsJUnit allocateEngine ();
 
     @InFxThread
     public void removeEngine ();

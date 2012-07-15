@@ -12,5 +12,7 @@ public interface Browser {
 
     public void load ();
 
+    public void synchronizeEngine ();
+
     public Object callFunction(String callee) throws JSException;
 }

@@ -49,7 +49,7 @@ public class LauncherInformation {
         private Statement statement;
 
         @NoTestAttached
-        public DescriptionBuilder(Statement statement) {
+        private DescriptionBuilder(Statement statement) {
             this.statement = statement;
         }
 
@@ -67,7 +67,7 @@ public class LauncherInformation {
         private Description description;
 
         @NoTestAttached
-        public Builder(Statement statement, Description desc) {
+        private Builder(Statement statement, Description desc) {
             this.statement = statement;
             this.description = desc;
         }
