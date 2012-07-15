@@ -16,9 +16,9 @@ class LauncherImpl extends Launcher {
 
     static AtomicReference<ExecutorService> LOCK = new AtomicReference<>(null)
 
-    private BrowserPreparation preparation
+    private BrowserManager preparation
 
-    JsJUnit jsJUnit
+    private JsJUnit jsJUnit
 
     @NoTestAttached
     public LauncherImpl () {
@@ -47,6 +47,11 @@ class LauncherImpl extends Launcher {
 
     @NoTestAttached
     public void setBuilder (FxJsJUnitBuilder builder) {
-        this.preparation = new BrowserManager(builder: builder)
+        this.preparation = new BrowserManagerImpl(builder: builder)
+    }
+
+    @Override
+    public JsJUnit getJsJUnit () {
+        return jsJUnit
     }
 }

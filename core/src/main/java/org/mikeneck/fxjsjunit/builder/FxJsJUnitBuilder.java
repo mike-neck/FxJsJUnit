@@ -1,6 +1,7 @@
 package org.mikeneck.fxjsjunit.builder;
 
 import org.mikeneck.fxjsjunit.FxJsJUnit;
+import org.mikeneck.fxjsjunit.FxJsJUnitCannotGetStartedException;
 
 /**
  * @author mike_neck
@@ -13,7 +14,7 @@ public interface FxJsJUnitBuilder {
 
     public FxJsJUnitBuilder identifiedBy (Class<?> identifier);
 
-    public FxJsJUnit get();
+    public FxJsJUnit get() throws FxJsJUnitCannotGetStartedException;
 
     public String identifier();
 

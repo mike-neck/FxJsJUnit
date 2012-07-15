@@ -3,6 +3,7 @@ package org.mikeneck.fxjsjunit.application;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runners.model.Statement;
+import org.mikeneck.fxjsjunit.JsJUnit;
 import org.mikeneck.fxjsjunit.builder.FxJsJUnitBuilder;
 
 import java.util.Date;
@@ -85,6 +86,11 @@ public class LauncherTest {
 
         @Override
         public void setBuilder(FxJsJUnitBuilder b) {
+        }
+
+        @Override
+        public JsJUnit getJsJUnit() {
+            return null;
         }
 
         private long now () {

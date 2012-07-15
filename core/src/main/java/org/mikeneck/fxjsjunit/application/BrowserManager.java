@@ -6,7 +6,7 @@ import org.mikeneck.fxjsjunit.annotation.InFxThread;
 /**
  * @author mike_neck
  */
-public interface BrowserPreparation {
+public interface BrowserManager {
 
     @InFxThread
     public JsJUnit allocateEngine ();

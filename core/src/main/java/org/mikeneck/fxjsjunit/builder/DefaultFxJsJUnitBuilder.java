@@ -1,6 +1,7 @@
 package org.mikeneck.fxjsjunit.builder;
 
 import org.mikeneck.fxjsjunit.FxJsJUnit;
+import org.mikeneck.fxjsjunit.FxJsJUnitCannotGetStartedException;
 import org.mikeneck.fxjsjunit.annotation.NoTestAttached;
 import org.mikeneck.fxjsjunit.extension.DefaultFxJsJUnit;
 
@@ -36,7 +37,10 @@ public class DefaultFxJsJUnitBuilder implements FxJsJUnitBuilder {
 
     @NoTestAttached
     @Override
-    public FxJsJUnit get() {
+    public FxJsJUnit get() throws FxJsJUnitCannotGetStartedException {
+        if (identifier == null || identifier.isEmpty() || url == null || url.isEmpty()) {
+            throw new FxJsJUnitCannotGetStartedException("Please give enough information for FxJsJUnitBuilder : " + toString());
+        }
         return new DefaultFxJsJUnit(this);
     }
 
@@ -50,5 +54,19 @@ public class DefaultFxJsJUnitBuilder implements FxJsJUnitBuilder {
     @Override
     public String url() {
         return this.url;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        return builder
+                .append("[")
+                .append("identifier => \"")
+                .append(identifier)
+                .append("\", url => \"")
+                .append(url)
+                .append("\"]")
+                .toString();
+
     }
 }

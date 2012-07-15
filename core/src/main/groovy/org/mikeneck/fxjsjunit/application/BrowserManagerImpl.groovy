@@ -1,14 +1,13 @@
 package org.mikeneck.fxjsjunit.application
 
 import org.mikeneck.fxjsjunit.builder.FxJsJUnitBuilder
-import org.mikeneck.fxjsjunit.annotation.InFxThread
-import org.mikeneck.fxjsjunit.annotation.NoTestAttached
+
 import org.mikeneck.fxjsjunit.JsJUnit
 
 /**
  * @author mike_neck
  */
-class BrowserManager implements BrowserPreparation {
+class BrowserManagerImpl implements BrowserManager {
 
     FxJsJUnitBuilder builder
 
